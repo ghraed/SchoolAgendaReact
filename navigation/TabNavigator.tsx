@@ -2,7 +2,9 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import DutiesScreen from '../screens/DutiesScreen';
 import CalendarScreen from '../screens/CalendarScreen';
+import MarkScreen from '../screens/MarksScreen';
 import { Ionicons } from '@expo/vector-icons';
+import ProfileScreen from '../screens/ProfileScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -27,8 +29,8 @@ export default function TabNavigator() {
         >
             <Tab.Screen name="Duties" component={DutiesScreen} />
             <Tab.Screen name="Calendar" component={CalendarScreen} />
-            <Tab.Screen name="Profile" component={DummyScreen} />
-            <Tab.Screen name="Marks" component={DummyScreen} />
+            <Tab.Screen name="Marks" component={MarkScreen} />
+            <Tab.Screen name="Profile" component={ProfileScreen} />
         </Tab.Navigator>
     );
 }

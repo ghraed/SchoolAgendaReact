@@ -42,9 +42,9 @@ export default function ProfileScreen() {
 
   return (
     <SafeAreaView style={styles.safe} edges={["top", "left", "right"]}>
-      <StatusBar barStyle="light-content" backgroundColor={COLORS.bg} translucent={false} />
+      <StatusBar barStyle="light-content" backgroundColor={colors.bg} translucent={false} />
       {/* Top spacer so the avatar can overlap the card nicely */}
-      <View style={{ height: insets.top }} />
+      <View style={{ height: insets.top,  }} />
 
       {/* Avatar */}
       <View style={styles.hero}>
@@ -84,9 +84,9 @@ export default function ProfileScreen() {
             <Text style={styles.feesLabel}>Paid</Text>
             <Text style={styles.feesValue}>${student.paid}</Text>
           </View>
-          <View style={[styles.feesBox, { borderColor: COLORS.accent }]}>
+          <View style={[styles.feesBox, { borderColor: colors.primary }]}>
             <Text style={styles.feesLabel}>Remaining</Text>
-            <Text style={[styles.feesValue, { color: COLORS.accent }]}>${remaining}</Text>
+            <Text style={[styles.feesValue, { color: colors.primary }]}>${remaining}</Text>
           </View>
         </View>
       </View>
@@ -106,7 +106,7 @@ function InfoRow({ label, value }: { label: string; value: string | number }) {
 const AVATAR_SIZE = 120;
 
 const styles = StyleSheet.create({
-  safe: { flex: 1, backgroundColor: colors.bg },
+  safe: { flex: 1, backgroundColor: colors.secondary },
   hero: {
     alignItems: "center",
     marginTop: 12,
@@ -177,12 +177,12 @@ const styles = StyleSheet.create({
     flex: 1,
     borderWidth: 1,
     borderColor: colors.surfaceBorder,
-    backgroundColor: "rgba(255,255,255,0.06)",
+    backgroundColor: "rgba(255,255,0,0.06)",
     borderRadius: 14,
     paddingVertical: 10,
     paddingHorizontal: 12,
   },
-  feesLabel: { color: colors.textMuted, fontWeight: "700", fontSize: 12 },
+  feesLabel: { color: colors.text, fontWeight: "700", fontSize: 12 },
   feesValue: { color: colors.text, fontWeight: "800", fontSize: 16, marginTop: 2 },
 });
 
@@ -194,17 +194,17 @@ const rowStyles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: colors.surfaceBorder,
   },
-  label: { flex: 1, color: colors.textMuted, fontWeight: "700", fontSize: 13 },
+  label: { flex: 1, color: colors.text, fontWeight: "700", fontSize: 13 },
   value: { flex: 1, color: colors.text, fontWeight: "700", fontSize: 14, textAlign: "right" },
 });
 
 
-const COLORS = {
-  bg: "#0b1220",
-  card: "rgba(255,255,255,0.04)",
-  cardBorder: "rgba(255,255,255,0.06)",
-  text: "#ffffff",
-  muted: "#b9c2d3",
-  accent: "#f2a900",
-  chip: "#7cc4ff",
-};
+// const COLORS = {
+//   bg: "#0b1220",
+//   card: "rgba(255,255,255,0.04)",
+//   cardBorder: "rgba(255,255,255,0.06)",
+//   text: "#ffffff",
+//   muted: "#b9c2d3",
+//   accent: "#f2a900",
+//   chip: "#7cc4ff",
+// };

@@ -3,7 +3,7 @@ import { View, Text, Alert, ScrollView, TouchableOpacity } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import Checkbox from 'expo-checkbox';
-
+import { colors } from '../src/theme/colors';
 const data = [
     {
         subject: 'Mathematics',
@@ -32,7 +32,7 @@ export default function DutiesScreen() {
     };
 
     return (
-        <SafeAreaView style={{ flex: 1, backgroundColor: 'black', paddingHorizontal: 16 }}>
+        <SafeAreaView style={{ flex: 1, backgroundColor: colors.bg, paddingHorizontal: 16 }}>
             <Text style={{ color: 'white', fontSize: 24, fontWeight: 'bold', marginBottom: 16, marginTop: 8 }}>
                 Today's Duties
             </Text>
@@ -42,7 +42,7 @@ export default function DutiesScreen() {
                     <View
                         key={idx}
                         style={{
-                            backgroundColor: '#1f1f1f',
+                            backgroundColor: colors.black,
                             padding: 16,
                             borderRadius: 12,
                             marginBottom: 16,
@@ -65,7 +65,7 @@ export default function DutiesScreen() {
                                     <Checkbox
                                         value={isChecked}
                                         onValueChange={() => toggleDuty(item.subject, duty)}
-                                        color={isChecked ? '#FFA500' : undefined}
+                                        color={isChecked ? colors.primary : undefined}
                                         style={{ marginRight: 10 }}
                                     />
                                     <Text style={{ color: 'white' }}>{duty}</Text>

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, Alert, FlatList, Dimensions } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { SafeAreaView } from 'react-native-safe-area-context';
-
+import { colors } from '../src/theme/colors';
 const weekDays = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 
 const getDaysInMonth = (month: number, year: number) => {
@@ -62,17 +62,17 @@ export default function CalendarScreen() {
   const cellHeight = (screenHeight - headerHeight) / totalRows;
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: 'black' }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: colors.bg }}>
       {/* Header */}
       <View style={{ flexDirection: 'row', justifyContent: 'space-between', padding: 16, alignItems: 'center' }}>
         <TouchableOpacity onPress={goToPreviousMonth}>
-          <Ionicons name="chevron-back" size={24} color="orange" />
+          <Ionicons name="chevron-back" size={24} color={colors.primary} />
         </TouchableOpacity>
-        <Text style={{ color: 'white', fontSize: 20, fontWeight: 'bold' }}>
+        <Text style={{ color: colors.white, fontSize: 20, fontWeight: 'bold' }}>
           {monthName} {currentYear}
         </Text>
         <TouchableOpacity onPress={goToNextMonth}>
-          <Ionicons name="chevron-forward" size={24} color="orange" />
+          <Ionicons name="chevron-forward" size={24} color={colors.primary} />
         </TouchableOpacity>
       </View>
 
@@ -80,7 +80,7 @@ export default function CalendarScreen() {
       <View style={{ flexDirection: 'row', paddingHorizontal: 8 }}>
         {weekDays.map((day) => (
           <View key={day} style={{ flex: 1, alignItems: 'center', paddingVertical: 8 }}>
-            <Text style={{ color: 'white', fontWeight: 'bold' }}>{day}</Text>
+            <Text style={{ color: colors.white, fontWeight: 'bold' }}>{day}</Text>
           </View>
         ))}
       </View>
@@ -94,8 +94,8 @@ export default function CalendarScreen() {
         {calendarCells.map((item, index) => {
           const dayOfWeek = index % 7;
           const isWeekend = dayOfWeek === 5 || dayOfWeek === 6;
-          const backgroundColor = isWeekend ? '#333' : '#000';
-          const textColor = isWeekend ? '#777' : 'white';
+          const backgroundColor = isWeekend ? colors.secondary : '#000';
+          const textColor = isWeekend ? '#777' : colors.white;
 
           return (
             <TouchableOpacity

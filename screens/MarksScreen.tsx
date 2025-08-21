@@ -1,6 +1,7 @@
 import React, { useMemo } from "react";
 import { View, Text, ScrollView, StyleSheet, StatusBar } from "react-native";
 import { SafeAreaView, useSafeAreaInsets } from "react-native-safe-area-context";
+import { colors } from '../src/theme/colors';
 
 type SemesterKey = "First" | "Middle" | "Last";
 type SubjectKey = "Arabic" | "English" | "Math" | "Physics" | "Chemistry" | "Biology";
@@ -90,7 +91,7 @@ export default function MarksScreen() {
   return (
     <SafeAreaView style={styles.safe} edges={["top", "left", "right"]}>
       {/* Solid, non-translucent status bar matching header bg */}
-      <StatusBar barStyle="light-content" backgroundColor="#0b1220" translucent={false} />
+      <StatusBar barStyle="light-content" backgroundColor={colors.secondary} translucent={false} />
 
       <View style={[styles.headerWrap, { paddingTop: insets.top }]}>
         <View style={styles.topHeader}>
@@ -193,9 +194,9 @@ function SemesterCard({
 }
 
 const styles = StyleSheet.create({
-  safe: { flex: 1, backgroundColor: "#0b1220" },
+  safe: { flex: 1, backgroundColor: colors.secondary },
   headerWrap: {
-    backgroundColor: "#0b1220",
+    backgroundColor: colors.secondary,
     paddingHorizontal: 16,
     paddingBottom: 8,
   },
@@ -203,9 +204,9 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     paddingVertical: 6,
     borderRadius: 999,
-    backgroundColor: "#7cc4ff",
+    backgroundColor: colors.info,
   },
-  avgChipText: { color: "#0b1220", fontWeight: "800", fontSize: 12 },
+  avgChipText: { color: colors.secondary, fontWeight: "800", fontSize: 12 },
 
   container: {
     padding: 16,
@@ -216,7 +217,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     marginBottom: 12,
   },
-  title: { color: "#ffffff", fontSize: 22, fontWeight: "800", letterSpacing: 0.4 },
+  title: { color: colors.white, fontSize: 22, fontWeight: "800", letterSpacing: 0.4 },
 
   card: {
     backgroundColor: "rgba(255,255,255,0.04)",
@@ -224,7 +225,7 @@ const styles = StyleSheet.create({
     padding: 12,
     marginBottom: 14,
     borderWidth: 1,
-    borderColor: "rgba(255,255,255,0.06)",
+    borderColor: colors.surfaceBorder,
   },
   cardHeader: {
     flexDirection: "row",
@@ -232,7 +233,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginBottom: 8,
   },
-  cardTitle: { color: "#ffffff", fontSize: 16, fontWeight: "800" },
+  cardTitle: { color: colors.white, fontSize: 16, fontWeight: "800" },
 
   row: {
     flexDirection: "row",
@@ -244,23 +245,23 @@ const styles = StyleSheet.create({
     paddingTop: 4,
     paddingBottom: 6,
     borderBottomWidth: 1,
-    borderBottomColor: "rgba(255,255,255,0.06)",
+    borderBottomColor: colors.surfaceBorder,
   },
-  headerText: { color: "#b9c2d3", fontWeight: "700", fontSize: 12 },
+  headerText: { color: colors.textSecondary, fontWeight: "700", fontSize: 12 },
 
-  colSubject: { flex: 1.1, color: "#ffffff", fontSize: 14, fontWeight: "600" },
+  colSubject: { flex: 1.1, color: colors.white, fontSize: 14, fontWeight: "600" },
   colMark: { flex: 1, gap: 6 },
-  markText: { color: "#ffffff", fontWeight: "700" },
+  markText: { color: colors.white, fontWeight: "700" },
 
   barTrack: {
     height: 6,
-    backgroundColor: "rgba(255,255,255,0.08)",
+    backgroundColor: colors.surfaceTrack,
     borderRadius: 999,
     overflow: "hidden",
   },
   barFill: {
     height: "100%",
-    backgroundColor: "#f2a900", // accent (matches your tab highlight vibe)
+    backgroundColor: colors.primary, // accent (matches your tab highlight vibe)
   },
 
   summary: {
@@ -272,14 +273,14 @@ const styles = StyleSheet.create({
   },
   summaryBox: {
     flex: 1,
-    backgroundColor: "rgba(255,255,255,0.06)",
+    backgroundColor: colors.surfaceBorder,
     padding: 10,
     borderRadius: 14,
   },
-  summaryLabel: { color: "#b9c2d3", fontWeight: "700", fontSize: 12 },
-  summaryValue: { color: "#ffffff", fontWeight: "800", fontSize: 16, marginTop: 2 },
+  summaryLabel: { color: colors.textSecondary, fontWeight: "700", fontSize: 12 },
+  summaryValue: { color: colors.white, fontWeight: "800", fontSize: 16, marginTop: 2 },
 
-  ruleHint: { marginTop: 6, color: "#8ea0bf", fontSize: 11 },
+  ruleHint: { marginTop: 6, color: colors.textSecondary, fontSize: 11 },
 
   badge: {
     paddingHorizontal: 10,
@@ -287,8 +288,8 @@ const styles = StyleSheet.create({
     borderRadius: 999,
     borderWidth: 1,
   },
-  badgeText: { color: "#0b1220", fontWeight: "800", fontSize: 12 },
-  badgePass: { backgroundColor: "#35d399", borderColor: "#35d399" },
-  badgeFail: { backgroundColor: "#ff6b6b", borderColor: "#ff6b6b" },
-  badgeInfo: { backgroundColor: "#7cc4ff", borderColor: "#7cc4ff" },
+  badgeText: { color: colors.secondary, fontWeight: "800", fontSize: 12 },
+  badgePass: { backgroundColor: colors.success, borderColor: colors.success },
+  badgeFail: { backgroundColor: colors.danger, borderColor: colors.danger },
+  badgeInfo: { backgroundColor: colors.info, borderColor: colors.info },
 });

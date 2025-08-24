@@ -15,7 +15,7 @@ const SUBJECTS: SubjectKey[] = ["Arabic", "English", "Math", "Physics", "Chemist
 const DEMO: Data = {
   First: { Math: 100, Arabic: 72, English: 66, Physics: 61, Chemistry: 70, Biology: 74 },
   Middle: { Math: 95, Arabic: 81, English: 73, Physics: 69, Chemistry: 77, Biology: 80 },
-  Last: { Math: 98, Arabic: 10, English: 9, Physics: 55, Chemistry: 63, Biology: 68 },
+  Last: { Math: 98, Arabic: 60, English: 19, Physics: 55, Chemistry: 63, Biology: 68 },
 };
 
 const PASS_RULE = {

@@ -10,7 +10,7 @@ export const colors = {
   weekend: "#e38a8a",
 
   primary: "#f2a900", 
-  secondary: "#0b122011",
+  secondary: "#0b1220",
   surface: "rgba(255,255,255,0.04)",
   surfaceBorder: "rgba(255,255,255,0.06)",
   surfaceTrack: "rgba(255,255,255,0.08)",

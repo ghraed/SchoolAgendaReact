@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, Image, Pressable, StatusBar } from "react-nativ
 import { SafeAreaView, useSafeAreaInsets } from "react-native-safe-area-context";
 import * as ImagePicker from "expo-image-picker";
 
-import { colors } from "../src/theme/colors";
+import { colors } from "../../theme/colors";
 
 const student = {
   name: "Valentino C",
@@ -44,13 +44,13 @@ export default function ProfileScreen() {
     <SafeAreaView style={styles.safe} edges={["top", "left", "right"]}>
       <StatusBar barStyle="light-content" backgroundColor={colors.bg} translucent={false} />
       {/* Top spacer so the avatar can overlap the card nicely */}
-      <View style={{ height: insets.top,  }} />
+      <View style={{ height: insets.top, }} />
 
       {/* Avatar */}
       <View style={styles.hero}>
         <Pressable onPress={pickImage} style={styles.avatarWrap}>
           <Image
-            source={avatarUri ? { uri: avatarUri } : require("../assets/avatar.png")}
+            source={avatarUri ? { uri: avatarUri } : require("../../../assets/avatar.png")}
             style={styles.avatar}
           />
           <View style={styles.changeBadge}>

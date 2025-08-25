@@ -1,10 +1,10 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import DutiesScreen from '../screens/DutiesScreen';
-import CalendarScreen from '../screens/CalendarScreen';
-import MarkScreen from '../screens/MarksScreen';
+import MarkScreen from '../src/features/marks/MarksScreen';
 import { Ionicons } from '@expo/vector-icons';
-import ProfileScreen from '../screens/ProfileScreen';
+import DutiesScreen from '../src/features/duties/DutiesScreen';
+import CalendarScreen from '../src/features/calendar/CalendarScreen';
+import ProfileScreen from '../src/features/profile/ProfileScreen';
 
 const Tab = createBottomTabNavigator();
 

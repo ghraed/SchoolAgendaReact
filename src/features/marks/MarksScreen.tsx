@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
 import { View, Text, ScrollView, StyleSheet, StatusBar } from "react-native";
 import { SafeAreaView, useSafeAreaInsets } from "react-native-safe-area-context";
-import { colors } from '../src/theme/colors';
+import { colors } from '../../theme/colors';
 
 type SemesterKey = "First" | "Middle" | "Last";
 type SubjectKey = "Arabic" | "English" | "Math" | "Physics" | "Chemistry" | "Biology";

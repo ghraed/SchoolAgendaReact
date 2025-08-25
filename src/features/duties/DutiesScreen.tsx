@@ -3,7 +3,7 @@ import { View, Text, Alert, ScrollView, TouchableOpacity } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import Checkbox from 'expo-checkbox';
-import { colors } from '../src/theme/colors';
+import { colors } from '../../theme/colors';
 const data = [
     {
         subject: 'Mathematics',

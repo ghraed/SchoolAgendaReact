@@ -25,43 +25,42 @@ export default function LoginScreen({ navigation }: any) {
   const buttonTextColor = useMemo(() => ({ color: colors.secondary }), []);
 
   const onLogin = () => {
-    const trimmed = name.trim();
-    const isDemoUser = trimmed.toLowerCase() === "student";
-
-    // start loading animation
+    const who = name.trim().toLowerCase();
     setLoading(true);
     Animated.parallel([
       Animated.spring(scale, { toValue: 0.98, useNativeDriver: true }),
-      Animated.timing(spinnerOpacity, {
-        toValue: 1,
-        duration: 200,
-        useNativeDriver: true,
-      }),
+      Animated.timing(spinnerOpacity, { toValue: 1, duration: 200, useNativeDriver: true }),
     ]).start();
 
-    // Simulate short delay
     setTimeout(() => {
-      if (isDemoUser) {
-        // success → go to tabs
-        Animated.spring(scale, { toValue: 1, useNativeDriver: true }).start();
-        setLoading(false);
-        navigation.reset({ index: 0, routes: [{ name: "MainTabs" }] });
-      } else {
-        // failure → stop animation and show error
-        Animated.parallel([
-          Animated.spring(scale, { toValue: 1, useNativeDriver: true }),
-          Animated.timing(spinnerOpacity, {
-            toValue: 0,
-            duration: 150,
-            useNativeDriver: true,
-          }),
-        ]).start();
-        setLoading(false);
-        Alert.alert(
-          "Invalid credentials",
-          'For this demo, use name "student" with any password.'
-        );
+      // stop button press animation
+      Animated.spring(scale, { toValue: 1, useNativeDriver: true }).start();
+      setLoading(false);
+
+      if (who === "student") {
+        // open app normally (tabs root)
+        navigation.reset({
+          index: 0,
+          routes: [{ name: "MainTabs" }],
+        });
+        return;
       }
+
+      if (who === "teacher") {
+        alert(who + "123")
+        // go straight to Duties tab inside TabNavigator
+        navigation.reset({
+          index: 0,
+          routes: [{ name: "TeacherMainTabs", params: { screen: "Duties" } }],
+        });
+        return;
+      }
+      // invalid demo user
+      Animated.timing(spinnerOpacity, { toValue: 0, duration: 150, useNativeDriver: true }).start();
+      Alert.alert(
+        "Invalid credentials",
+        'Demo users: type name "student" or "teacher" (any password).'
+      );
     }, 800);
   };
 

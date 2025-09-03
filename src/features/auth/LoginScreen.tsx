@@ -47,7 +47,6 @@ export default function LoginScreen({ navigation }: any) {
       }
 
       if (who === "teacher") {
-        alert(who + "123")
         // go straight to Duties tab inside TabNavigator
         navigation.reset({
           index: 0,
